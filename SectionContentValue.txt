@@ -1,0 +1,14 @@
+Binary file /Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//bin/Debug/Latex2MathML.dll matches
+Binary file /Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//bin/Debug/Latex2MathML.dll.mdb matches
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//Latex2MathML.csproj:    <Compile Include="SectionContentsValue.cs" />
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//LatexToMathMLConverter.cs:        internal Dictionary<SectionType, List<SectionContentsValue>> SectionContents;
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//LatexToMathMLConverter.cs:            SectionContents = new Dictionary<SectionType, List<SectionContentsValue>>();
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//LatexToMathMLConverter.cs:            SectionContents[SectionType.Numbered] = new List<SectionContentsValue>();
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//LatexToMathMLConverter.cs:            SectionContents[SectionType.Unnumbered] = new List<SectionContentsValue>();
+Binary file /Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//ltx2mml/bin/Debug/Latex2MathML.dll matches
+Binary file /Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//ltx2mml/bin/Debug/Latex2MathML.dll.mdb matches
+Binary file /Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//obj/Debug/Latex2MathML.dll matches
+Binary file /Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//obj/Debug/Latex2MathML.dll.mdb matches
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//SectionContentsValue.cs:    internal struct SectionContentsValue
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//SectionContentsValue.cs:        /// Initializes a new instance of the SectionContentsValue struct.
+/Users/Frans/Documents/c-sharp/latex2mathml_85990fe783d8//SectionContentsValue.cs:        public SectionContentsValue(string title)
