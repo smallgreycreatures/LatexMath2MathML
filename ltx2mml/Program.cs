@@ -17,7 +17,7 @@
 
 using System;
 using System.Text;
-using Latex2MathML;
+using LatexMath2MathML;
 
 namespace ltx2mml
 {
@@ -32,11 +32,11 @@ namespace ltx2mml
 
 
 
-		LatexToMathMLConverter lmm;
+		LatexMathToMathMLConverter lmm;
 
 		public void Convert() {
-			String latexExpression = @"\begin{document} $ \int\limits_a^b $ \end{document}";
-			lmm = new LatexToMathMLConverter(
+			String latexExpression = @"\begin{document} $ \sum_{i=1}^{10} t_i $ \end{document}";
+			lmm = new LatexMathToMathMLConverter(
 				latexExpression);
 			lmm.ValidateResult = true;
 			lmm.BeforeXmlFormat += MyEventListener;
@@ -45,7 +45,7 @@ namespace ltx2mml
 		}
 		private void MyEventListener(object sender, EventArgs e) 
 		{
-			Console.WriteLine("called .");
+			//Console.WriteLine("called .");
 			String output = lmm.output;
 			Console.WriteLine (output);
 		}

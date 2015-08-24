@@ -1,25 +1,25 @@
 ﻿/*  
-    This file is part of Latex2MathML.
+    This file is part of LatexMath2MathML.
 
-    Latex2MathML is free software: you can redistribute it and/or modify
+    LatexMath2MathML is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Latex2MathML is distributed in the hope that it will be useful,
+    LatexMath2MathML is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Latex2MathML.  If not, see <http://www.gnu.org/licenses/>.
+    along with LatexMath2MathML.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Latex2MathML
+namespace LatexMath2MathML
 {
     /// <summary>
     /// The parser of the LaTeX document object tree.
@@ -35,9 +35,9 @@ namespace Latex2MathML
         private string _source;
 
         /// <summary>
-        /// The LatexToMathMLConverter class instance to customize the conversion result.
+        /// The LatexMathToMathMLConverter class instance to customize the conversion result.
         /// </summary>
-        private readonly LatexToMathMLConverter _customization;
+        private readonly LatexMathToMathMLConverter _customization;
 
         /// <summary>
         /// The root of the document object tree.
@@ -91,8 +91,8 @@ namespace Latex2MathML
         /// Initializes a new instance of the LatexParser class.
         /// </summary>
         /// <param name="source">The source string to build the tree from.</param>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
-        public LatexParser(string source, LatexToMathMLConverter customization)
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
+        public LatexParser(string source, LatexMathToMathMLConverter customization)
         {
             if (String.IsNullOrEmpty(source))
             {
@@ -116,9 +116,9 @@ namespace Latex2MathML
         /// <summary>
         /// Builds the document object tree.
         /// </summary>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
         /// <remarks>The parsing procedure consists of stand-alone passes, so that it resembles a compiler pipeline.</remarks>
-        public void Parse(LatexToMathMLConverter customization)
+        public void Parse(LatexMathToMathMLConverter customization)
         {
             foreach (var rule in PreformatRules)
             {
@@ -371,8 +371,8 @@ namespace Latex2MathML
 		/// Recursively build scripts (for msup, munder, etc.)
 		/// </summary>
 		/// <param name="list">The outline of a LatexExpression instance.</param>
-		/// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
-		private static void BuildScripts(List<LatexExpression> list, LatexToMathMLConverter customization)
+		/// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
+		private static void BuildScripts(List<LatexExpression> list, LatexMathToMathMLConverter customization)
 		{
 			for (int i = 0; i < list.Count; i++)
 			{
@@ -536,8 +536,8 @@ namespace Latex2MathML
         /// Post-parses arrays.
         /// </summary>
         /// <param name="outline">The outline of a LatexExpression instance.</param>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
-        private static void PostParseArrays(IList<LatexExpression> outline, LatexToMathMLConverter customization)
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
+        private static void PostParseArrays(IList<LatexExpression> outline, LatexMathToMathMLConverter customization)
         {
             for (int i = 0; i < outline.Count; i++)
             {

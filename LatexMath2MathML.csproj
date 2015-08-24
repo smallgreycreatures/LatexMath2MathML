@@ -8,8 +8,8 @@
     <ProjectGuid>{FF17A7C9-ED72-44F9-9DDD-4AD6B44D97D8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Latex2MathML</RootNamespace>
-    <AssemblyName>Latex2MathML</AssemblyName>
+    <RootNamespace>LatexMath2MathML</RootNamespace>
+    <AssemblyName>LatexMath2MathML</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -85,7 +85,6 @@
     <Compile Include="FracCommandConverter.cs" />
     <Compile Include="AccentConverters.cs" />
     <Compile Include="LinkConverters.cs" />
-    <Compile Include="LatexToMathMLConverter.cs" />
     <Compile Include="LatexExpression.cs" />
     <Compile Include="LatexParser.cs" />
     <Compile Include="MathcalConverter.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="SqrtCommandConverter.cs" />
     <Compile Include="UnknownBlockConverter.cs" />
     <Compile Include="VerbatimConverter.cs" />
+    <Compile Include="LatexMathToMathMLConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.png">

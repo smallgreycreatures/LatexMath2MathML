@@ -1,18 +1,18 @@
 ﻿/*  
-    This file is part of Latex2MathML.
+    This file is part of LatexMath2MathML.
 
-    Latex2MathML is free software: you can redistribute it and/or modify
+    LatexMath2MathML is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Latex2MathML is distributed in the hope that it will be useful,
+    LatexMath2MathML is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Latex2MathML.  If not, see <http://www.gnu.org/licenses/>.
+    along with LatexMath2MathML.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System;
@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Latex2MathML
+namespace LatexMath2MathML
 {
     /// <summary>
     /// Serves as a node in a document object tree. Parses the tree from a TextReader instance.
@@ -73,9 +73,9 @@ namespace Latex2MathML
         public bool MathMode { get; set; }
 
         /// <summary>
-        /// Gets or sets the LatexToMathMLConverter class instance to customize the conversion result.
+        /// Gets or sets the LatexMathToMathMLConverter class instance to customize the conversion result.
         /// </summary>
-        public LatexToMathMLConverter Customization { get; set; }
+        public LatexMathToMathMLConverter Customization { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the LatexExpression class.
@@ -88,10 +88,10 @@ namespace Latex2MathML
         /// <param name="mathMode">The math mode switch.</param>
         /// <param name="name">The expression name.</param>
         /// <param name="options">The options of the expression.</param>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
         /// <param name="values">The child outlines of the expression.</param>
         private LatexExpression(LatexExpression parent, int parentChildNumber, ref int indexInParentChild,
-            ref bool verbatimMode, ExpressionType type, bool mathMode, LatexToMathMLConverter customization,
+            ref bool verbatimMode, ExpressionType type, bool mathMode, LatexMathToMathMLConverter customization,
             string name, string options, params string[] values)
         {
             Parent = parent;
@@ -244,8 +244,8 @@ namespace Latex2MathML
         /// <param name="parent">The parent of the builded expression.</param>
         /// <param name="parentChildNumber">Index of the parent child outline.</param>
         /// <param name="indexInParentChild">Index in the parent child outline.</param>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
-        public LatexExpression(string name, LatexExpression parent, int parentChildNumber, int indexInParentChild, LatexToMathMLConverter customization)
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
+        public LatexExpression(string name, LatexExpression parent, int parentChildNumber, int indexInParentChild, LatexMathToMathMLConverter customization)
         {
             Name = name;
             Customization = customization;
@@ -359,9 +359,9 @@ namespace Latex2MathML
         /// Parses the document and builds the document object tree.
         /// </summary>
         /// <param name="rdr">The reader to read the document from.</param>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
         /// <returns>The root of the document object tree.</returns>
-        public static LatexExpression CreateRoot(TextReader rdr, LatexToMathMLConverter customization)
+        public static LatexExpression CreateRoot(TextReader rdr, LatexMathToMathMLConverter customization)
         {
             bool verbatimMode = false;
             int rootIndex = 0;
@@ -400,10 +400,10 @@ namespace Latex2MathML
         /// <param name="end">The stub of the unparsed part.</param>
         /// <param name="mathMode">The math mode switch.</param>
         /// <param name="whitespaceBefore">Indicates whether there was at least one whitespace char before the returned result.</param>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
         /// <returns></returns>
         private static LatexExpression ReadFromTextReader(LatexExpression parent, int parentChildNumber, 
-            ref int indexInParentChild, ref bool verbatimMode, bool mathMode, LatexToMathMLConverter customization,
+            ref int indexInParentChild, ref bool verbatimMode, bool mathMode, LatexMathToMathMLConverter customization,
             string beginning, TextReader rdr, out string end, ref bool whitespaceBefore)
         {
             if (beginning == null && rdr == null)
@@ -427,10 +427,10 @@ namespace Latex2MathML
         /// <param name="mathMode">The math mode switch.</param>
         /// <param name="end">The stub of the unparsed part.</param>
         /// <param name="whitespaceBefore">Indicates whether there was at least one whitespace char before the returned result.</param>
-        /// <param name="customization">The LatexToMathMLConverter class instance to customize the conversion result.</param>
+        /// <param name="customization">The LatexMathToMathMLConverter class instance to customize the conversion result.</param>
         /// <returns>The parsed LatexExpression instance.</returns>
         private static LatexExpression ReadFromTextReaderInner(LatexExpression parent, int parentChildNumber,
-            ref int indexInParentChild, ref bool verbatimMode, bool mathMode, LatexToMathMLConverter customization,
+            ref int indexInParentChild, ref bool verbatimMode, bool mathMode, LatexMathToMathMLConverter customization,
             string beginning, TextReader rdr, out string end, ref bool whitespaceBefore)
         {
             string name;

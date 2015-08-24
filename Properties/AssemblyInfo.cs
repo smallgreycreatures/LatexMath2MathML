@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Latex2MathML")]
-[assembly: AssemblyDescription("The library to convert LaTeX documents to the MathML representation.")]
+[assembly: AssemblyTitle("LatexMath2MathML")]
+[assembly: AssemblyDescription("The library to convert LaTeX mathematics to the MathML representation.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Latex2MathML")]
-[assembly: AssemblyCopyright("Copyright © Markovtsev Vadim, 2010")]
+[assembly: AssemblyProduct("LatexMath2MathML")]
+[assembly: AssemblyCopyright("Copyright © Frans Nordén 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

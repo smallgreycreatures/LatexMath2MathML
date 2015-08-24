@@ -18,3 +18,10 @@
 /Users/Frans/Documents/c-sharp/LatexMath2MathML/ltx2mml/bin/Debug/Latex2MathML.dll
 /Users/Frans/Documents/c-sharp/LatexMath2MathML/ltx2mml/bin/Debug/Latex2MathML.dll.mdb
 /Users/Frans/Documents/c-sharp/LatexMath2MathML/ltx2mml/bin/Debug/log4net.dll
+/Users/Frans/Documents/c-sharp/latexMath2mathML/ltx2mml/obj/Debug/ltx2mml.exe
+/Users/Frans/Documents/c-sharp/latexMath2mathML/ltx2mml/obj/Debug/ltx2mml.exe.mdb
+/Users/Frans/Documents/c-sharp/latexMath2mathML/ltx2mml/bin/Debug/favicon.png
+/Users/Frans/Documents/c-sharp/latexMath2mathML/ltx2mml/bin/Debug/styles.css
+/Users/Frans/Documents/c-sharp/latexMath2mathML/ltx2mml/bin/Debug/log4net.config
+/Users/Frans/Documents/c-sharp/latexMath2mathML/ltx2mml/bin/Debug/ltx2mml.exe.mdb
+/Users/Frans/Documents/c-sharp/latexMath2mathML/ltx2mml/bin/Debug/ltx2mml.exe

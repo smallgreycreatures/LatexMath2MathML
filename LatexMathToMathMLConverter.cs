@@ -1,18 +1,18 @@
 /*  
-    This file is part of Latex2MathML.
+    This file is part of LatexMath2MathML.
 
-    Latex2MathML is free software: you can redistribute it and/or modify
+    LatexMath2MathML is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Latex2MathML is distributed in the hope that it will be useful,
+    LatexMath2MathML is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Latex2MathML.  If not, see <http://www.gnu.org/licenses/>.
+    along with LatexMath2MathML.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System;
@@ -25,7 +25,7 @@ using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Latex2MathML
+namespace LatexMath2MathML
 {
 	internal enum TextSize
 	{
@@ -51,7 +51,7 @@ namespace Latex2MathML
     /// <summary>
     /// The converter from Latex to XHTML + MathML.
     /// </summary>
-    public sealed class LatexToMathMLConverter
+    public sealed class LatexMathToMathMLConverter
     {
 
 		public string output { get; private set; }
@@ -98,7 +98,7 @@ namespace Latex2MathML
         /// <param name="sourcePath">The path to the source LaTeX document to convert.</param>
         /// <param name="sourceEncoding">The character encoding of the specified LaTeX document.</param>
         /// <param name="outputPath">The path to the conversion result.</param>
-        public LatexToMathMLConverter(string latexExpression)
+        public LatexMathToMathMLConverter(string latexExpression)
         {            
             _sourceText = latexExpression;
 
