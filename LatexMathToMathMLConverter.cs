@@ -27,21 +27,21 @@ using System.Xml.Linq;
 
 namespace LatexMath2MathML
 {
-	internal enum TextSize
-	{
-		tiny, scriptsize, footnotesize, small, normalsize, large, Large, LARGE, huge, Huge	
-	}
-	
-	[Flags]
-	internal enum TextStyle
-	{
-		Normal = 0,
+    internal enum TextSize
+    {
+        tiny, scriptsize, footnotesize, small, normalsize, large, Large, LARGE, huge, Huge
+    }
+
+    [Flags]
+    internal enum TextStyle
+    {
+        Normal = 0,
         Bold = 1,
         Italic = 2,
         Underlined = 4,
         Strikethrough = 8
-	}
-	
+    }
+
     internal struct LabeledReference
     {
         public string Kind;
@@ -54,89 +54,74 @@ namespace LatexMath2MathML
     public sealed class LatexMathToMathMLConverter
     {
 
-		public string output { get; private set; }
+        public string output { get; private set; }
 
-        readonly string _sourceText;
+        private string _sourceText;
+
         internal Dictionary<string, LabeledReference> References;
 
+        //TODO How shall we present the text?
+        /// <summary>
+        ///The dictionary to get the corresponding CSS style from a text size definition. 
+        /// </summary>
+        /*internal static readonly Dictionary<TextSize, string> CSSTextSizeDictionary = new Dictionary<TextSize, string>
+        {
+            {TextSize.tiny, "tiny"},
+            {TextSize.scriptsize, "scriptsize"},
+            {TextSize.footnotesize, "footnotesize"},
+            {TextSize.small, "small"},
+            {TextSize.normalsize, "normalsize"},
+            {TextSize.large, "large"},
+            {TextSize.Large, "xlarge"},
+            {TextSize.LARGE, "xxlarge"},
+            {TextSize.huge, "huge"},
+            {TextSize.Huge, "xhuge"},
+        };        */
 
-		//TODO How shall we present the text?
-		/// <summary>
-		///The dictionary to get the corresponding CSS style from a text size definition. 
-		/// </summary>
-		/*internal static readonly Dictionary<TextSize, string> CSSTextSizeDictionary = new Dictionary<TextSize, string>
-		{
-			{TextSize.tiny, "tiny"},
-			{TextSize.scriptsize, "scriptsize"},
-			{TextSize.footnotesize, "footnotesize"},
-			{TextSize.small, "small"},
-			{TextSize.normalsize, "normalsize"},
-			{TextSize.large, "large"},
-			{TextSize.Large, "xlarge"},
-			{TextSize.LARGE, "xxlarge"},
-			{TextSize.huge, "huge"},
-			{TextSize.Huge, "xhuge"},
-		};        */
-		
         private static readonly log4net.ILog Log =
             log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 
-		
+
         private void CommonInitialize()
-        {            
+        {
             WaitForConversionFinish = true;
             Localization = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-			CurrentTextSize = TextSize.normalsize;
-			CurrentTextStyle = TextStyle.Normal;
+            CurrentTextSize = TextSize.normalsize;
+            CurrentTextStyle = TextStyle.Normal;
             Counters = new Dictionary<string, int>();
+            References = new Dictionary<string, LabeledReference>();
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the LatexToMathConverter class.
         /// </summary>
         /// <param name="sourcePath">The path to the source LaTeX document to convert.</param>
         /// <param name="sourceEncoding">The character encoding of the specified LaTeX document.</param>
         /// <param name="outputPath">The path to the conversion result.</param>
-        public LatexMathToMathMLConverter(string latexExpression)
-        {            
-            _sourceText = latexExpression;
-
+        public LatexMathToMathMLConverter()
+        {
             CommonInitialize();
         }
 
         #region Properties
 
-        /// <summary>
-        ///Gets the Bibtex records attached to this document. 
-        /// </summary>
+
 
         /// <summary>
         /// Gets the counters for various needs.
         /// </summary>
         internal Dictionary<string, int> Counters { get; private set; }
 
-		/// <summary>
-		/// Gets or sets the current text size.
-		/// </summary>
-		internal TextSize CurrentTextSize { get; set; }
-		
-		/// <summary>
-		///Gets or sets the current text style. 
-		/// </summary>
-		internal TextStyle CurrentTextStyle { get; set; }
+        /// <summary>
+        /// Gets or sets the current text size.
+        /// </summary>
+        internal TextSize CurrentTextSize { get; set; }
 
         /// <summary>
-        /// Gets or sets the localized title of the table of contents.
-        /// Default: "Contents".
+        ///Gets or sets the current text style. 
         /// </summary>
-        public string TableOfContentsTitle { get; set; }
-
-        /// <summary>
-        /// Gets or sets the localized title of the bibliography.
-        /// Default: "Bibliography".
-        /// </summary>
-        public string BibliographyTitle { get; set; }
+        internal TextStyle CurrentTextStyle { get; set; }
 
         /// <summary>
         /// Gets or sets Gets the ISO 639-1 two-letter code for the desired language.
@@ -157,42 +142,6 @@ namespace LatexMath2MathML
         /// </summary>
         public bool WaitForConversionFinish { get; set; }
 
-        /// <summary>
-        /// Gets or sets the section format string to use with String.Format.
-        /// </summary>
-        public string SectionFormat { get; set; }
-
-        /// <summary>
-        /// Gets or sets the subsection format string to use with String.Format.
-        /// </summary>
-        public string SubsectionFormat { get; set; }
-
-        /// <summary>
-        /// Gets or sets the section format in the table of contents to use with String.Format.
-        /// </summary>
-        public string TocSectionFormat { get; set; }
-
-        /// <summary>
-        /// Gets or sets the subsection format in the table of contents to use with String.Format.
-        /// </summary>
-        public string TocSubsectionFormat { get; set; }
-
-        /// <summary>
-        /// Gets or sets the cite format (BibTeX).
-        /// </summary>
-        public string CiteFormat { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bibliography record format (BibTeX).
-        /// Parameters:
-        /// 0 - reference (internal)
-        /// 1 - Number
-        /// 2 - Author
-        /// 3 - title
-        /// 4 - Everything else, each will be comma separated.
-        /// </summary>
-        public string BibliographyRecordFormat { get; set; }
-        
         #endregion
 
         #region Events
@@ -217,17 +166,24 @@ namespace LatexMath2MathML
         /// Occurs when the conversion has been finished.
         /// </summary>
         public event EventHandler OnConversionFinish;
-        #endregion      
+
+        /// <summary>
+        /// Occurs when the converted document has been validated.
+        /// </summary>
+        public event EventHandler ValidationSuccess;
+
+        #endregion
 
 
-		
+
+
         private void ThreadConvert(object obj)
         {
             var parser = new LatexParser(_sourceText, this);
             LatexExpression root;
             //try
             //{
-                root = parser.Root;
+            root = parser.Root;
             /*}
 // ReSharper disable RedundantCatchClause
 #pragma warning disable 168
@@ -241,28 +197,30 @@ namespace LatexMath2MathML
                 return;
 #endif
             }*/
-// ReSharper restore RedundantCatchClause
+            // ReSharper restore RedundantCatchClause
             CallEventHandler(AfterDocumentWasParsed);
-			//TODO Add eventual DTD validation in a nicer way
-			String str = "<!DOCTYPE math SYSTEM 'http://www.w3.org/Math/DTD/mathml1/mathml.dtd'>";
+
+            String linkToMMLDDT = "<!DOCTYPE math SYSTEM 'http://www.w3.org/Math/DTD/mathml1/mathml.dtd'>";
+            StringBuilder sb = new StringBuilder(linkToMMLDDT);
+
             output = root.Convert();
             CallEventHandler(BeforeXmlFormat);
             XDocument xml;
-			str += output;
-			xml = XDocument.Parse(str);
+            sb.Append(output);
+            xml = XDocument.Parse(sb.ToString());
 
             if (ValidateResult)
             {
-				#region Validate
-                CallEventHandler(BeforeValidate);               
+                #region Validate
+                CallEventHandler(BeforeValidate);
                 var settings = new XmlReaderSettings
                 {
                     ProhibitDtd = false,
                     ValidationType = ValidationType.DTD
                 };
-// ReSharper disable ConvertToConstant.Local
+                // ReSharper disable ConvertToConstant.Local
                 bool validationSuccessful = true;
-// ReSharper restore ConvertToConstant.Local
+                // ReSharper restore ConvertToConstant.Local
                 settings.ValidationEventHandler += (s, e) =>
                 {
 #if DEBUG
@@ -274,31 +232,13 @@ namespace LatexMath2MathML
                 };
                 var reader = xml.CreateReader();
                 while (reader.Read()) { }
-// ReSharper disable ConditionIsAlwaysTrueOrFalse
+                // ReSharper disable ConditionIsAlwaysTrueOrFalse
                 if (validationSuccessful)
-// ReSharper restore ConditionIsAlwaysTrueOrFalse
+                // ReSharper restore ConditionIsAlwaysTrueOrFalse
                 {
-                    #region Insert W3C logos
-                    // ReSharper disable PossibleNullReferenceException
-					Console.WriteLine("success");/*
-                    var body = xml.Element(XName.Get("html", "http://www.w3.org/1999/xhtml")).
-                        Element(XName.Get("body", "http://www.w3.org/1999/xhtml"));
-                    var img = new XElement(XName.Get("img", "http://www.w3.org/1999/xhtml"));
-                    img.SetAttributeValue("src", "http://www.w3.org/Icons/valid-xhtml11-blue.png");
-                    img.SetAttributeValue("alt", "Valid XHTML 1.1");
-                    body.Add(img);
-                    img = new XElement(XName.Get("img", "http://www.w3.org/1999/xhtml"));
-                    img.SetAttributeValue("src", "http://www.w3.org/Icons/valid-css-blue.png");
-                    img.SetAttributeValue("alt", "Valid CSS");
-                    body.Add(img);
-                    img = new XElement(XName.Get("img", "http://www.w3.org/1999/xhtml"));
-                    img.SetAttributeValue("src", "http://www.w3.org/Icons/valid-mathml20-blue.png");
-                    img.SetAttributeValue("alt", "Valid MATHML 2.0");
-                    body.Add(img);                 */   
-                    // ReSharper restore PossibleNullReferenceException                    
-                    #endregion
+                    CallEventHandler(ValidationSuccess);
                 }
-                //xml.Save(OutputPath);
+
                 #endregion
             }
         }
@@ -306,8 +246,9 @@ namespace LatexMath2MathML
         /// <summary>
         /// Starts the conversion process.
         /// </summary>
-        public void Convert()
+        public void Convert(String latexExpression)
         {
+            _sourceText = latexExpression;
             if (WaitForConversionFinish)
             {
                 var thread = new Thread(ThreadConvert);
@@ -324,7 +265,7 @@ namespace LatexMath2MathML
                 var thread = new BackgroundWorker();
                 thread.DoWork += (s, e) => ThreadConvert(null);
                 thread.RunWorkerCompleted += (s, e) => CallEventHandler(OnConversionFinish, e);
-                thread.RunWorkerAsync();                    
+                thread.RunWorkerAsync();
             }
         }
 
@@ -340,7 +281,7 @@ namespace LatexMath2MathML
                 {
                     handler(this, EventArgs.Empty);
                 }
-// ReSharper disable RedundantCatchClause
+                // ReSharper disable RedundantCatchClause
 #pragma warning disable 168
                 catch (Exception e)
 #pragma warning restore 168
@@ -348,11 +289,11 @@ namespace LatexMath2MathML
 #if DEBUG
                     throw;
 #else
-                    Log.Debug("A user exception occured when " + 
+                    Log.Debug("A user exception occured when " +
                         handler.Method.Name + " was raised with a message \"" + e.Message + "\"");
 #endif
                 }
-// ReSharper restore RedundantCatchClause
+                // ReSharper restore RedundantCatchClause
             }
         }
 
@@ -369,7 +310,7 @@ namespace LatexMath2MathML
                 {
                     handler(this, args);
                 }
-// ReSharper disable RedundantCatchClause
+                // ReSharper disable RedundantCatchClause
 #pragma warning disable 168
                 catch (Exception e)
 #pragma warning restore 168
@@ -377,12 +318,12 @@ namespace LatexMath2MathML
 #if DEBUG
                     throw;
 #else
-                    Log.Debug("A user exception occured when " + 
+                    Log.Debug("A user exception occured when " +
                         handler.Method.Name + " was raised with a message \"" + e.Message + "\"");
 #endif
                 }
-// ReSharper restore RedundantCatchClause
+                // ReSharper restore RedundantCatchClause
             }
-        }             
+        }
     }
 }
