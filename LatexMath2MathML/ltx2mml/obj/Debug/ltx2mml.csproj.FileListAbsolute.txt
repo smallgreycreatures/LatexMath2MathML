@@ -1,0 +1,13 @@
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\log4net.config
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\favicon.png
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\styles.css
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\ltx2mml.exe
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\ltx2mml.pdb
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\LatexMath2MathML.dll
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\log4net.dll
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\obj\Debug\ltx2mml.csprojResolveAssemblyReference.cache
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\obj\Debug\ltx2mml.exe
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\obj\Debug\ltx2mml.pdb
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML-master\LatexMath2MathML-master\ltx2mml\bin\Debug\LatexMath2MathML.pdb
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\ltx2mml\obj\Debug\ltx2mml.csprojResolveAssemblyReference.cache
+C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\ltx2mml\obj\Debug\ltx2mml.exe
