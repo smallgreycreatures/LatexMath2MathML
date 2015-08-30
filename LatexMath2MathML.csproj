@@ -69,6 +69,9 @@
     <Reference Include="log4net">
       <HintPath>References\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlgorithmConverter.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="UnknownBlockConverter.cs" />
     <Compile Include="VerbatimConverter.cs" />
     <Compile Include="LatexMathToMathMLConverter.cs" />
+    <Compile Include="Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.png">
@@ -116,6 +120,7 @@
     <Content Include="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -40,7 +40,7 @@ namespace LatexMath2MathML
             AppendMathProlog(bld, altText, inline, customization);
             bld.Append("<mrow>\n");
 			bld.Append(SequenceConverter.ConvertOutline(outline, customization));
-            bld.Append("\n</mrow>\n");
+            bld.Append("</mrow>\n");
             AppendMathEpilog(bld);
             return bld.ToString();
         }

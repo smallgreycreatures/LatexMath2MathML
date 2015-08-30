@@ -35,7 +35,7 @@ namespace ltx2mml
 		LatexMathToMathMLConverter lmm;
 
 		public void Convert() {
-			String latexExpression = @"\begin{document} $ \sum_{i=1}^{10} t_i $ \end{document}";
+			String latexExpression = @"\begin{document} $\frac{x}{y}$ \end{document}";
 			lmm = new LatexMathToMathMLConverter();
 			lmm.ValidateResult = true;
 			lmm.BeforeXmlFormat += MyEventListener;

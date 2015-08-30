@@ -62,7 +62,7 @@ namespace LatexMath2MathML
             bld.Append(expr.Expressions[0][1].Convert());
             bld.Append("</mrow>\n</");
             bld.Append(tag);
-            bld.Append(">");
+            bld.Append(">\n");
             if (first != "</mrow>\n</mfenced>\n")
             {
                 return bld.ToString();

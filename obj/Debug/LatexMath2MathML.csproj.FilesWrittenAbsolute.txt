@@ -17,3 +17,12 @@
 /Users/Frans/Documents/c-sharp/scania/LatexMath2MathML/obj/Debug/LatexMath2MathML.dll
 /Users/Frans/Documents/c-sharp/scania/LatexMath2MathML/obj/Debug/LatexMath2MathML.dll.mdb
 /Users/Frans/Documents/c-sharp/scania/LatexMath2MathML/bin/Debug/log4net.dll
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/bin/Debug/favicon.png
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/bin/Debug/styles.css
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/bin/Debug/log4net.config
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/bin/Debug/LatexMath2MathML.dll.mdb
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/bin/Debug/LatexMath2MathML.dll
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/obj/Debug/LatexMath2MathML.dll
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/obj/Debug/LatexMath2MathML.dll.mdb
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/bin/Debug/log4net.dll
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/bin/Debug/nunit.framework.dll
