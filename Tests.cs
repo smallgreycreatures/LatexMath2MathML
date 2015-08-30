@@ -172,7 +172,43 @@ namespace LatexMath2MathML
 		}
 
 
+		[Test]
+		public void ConvertSymbolsGreekLettersReturnsCorrectMML() 
+		{
 
+			String latexExpression = @"$\alpha, \Alpha, \beta, \Beta, \gamma, \Gamma, \Delta, \delta, \Epsilon, \epsilon, \varepsilon, Z, \zeta, H, \eta, \Theta, \theta, \vartheta, I, \iota, K, \kappa, \varkappa, \Lambda, \lambda, M, \mu, N, \nu, \Xi, \xi, O, o, \Pi, \pi, \varpi, P, \rho, \varrho, \Sigma, \sigma, \varsigma, T, \tau, \Upsilon, \upsilon, \Phi, \phi, \varphi, X, \chi, \Psi, \psi, \Omega, \omega$";
+			String latexToConvert = begin + latexExpression + end;
+			latex2MathMLConverter = new LatexMathToMathMLConverter();
+			latex2MathMLConverter.BeforeXmlFormat += ConvertSymbolsForAllInQuadExistsLeqEpsilonReturnsCorrectMMLListener;
+			latex2MathMLConverter.Convert(latexToConvert);
+
+			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""\forall x \in X, \quad \exists y \leq \epsilon \le \geq \ge"" display=""inline"" class=""normalsize"">
+<mstyle displaystyle=""true"" /><mrow>
+<mi>&#x2200;<!-- &forall; --></mi>
+<mi>x</mi>
+<mi>&#x2208;<!-- &isin; --></mi>
+<mi>X</mi>
+<mo>,</mo>
+<mspace width=""2em""/><mi>&#x2203;<!-- &exist; --></mi>
+<mi>y</mi>
+<mi>&#8804; <!-- leq --> </mi> 
+<mi>&#x3B5;<!-- &epsilon; --></mi><mi>&#8804; <!-- le --> </mi> 
+<mi>&#8805; <!-- geq --> </mi> 
+<mi>&#8805; <!-- ge --> </mi> 
+</mrow>
+</math>";
+			Thread.Sleep(400);
+
+
+			NUnit.Framework.Assert.That(result, Is.EqualTo(expected));
+
+		}
+
+		void ConvertSymbolsGreekLettersReturnsCorrectMMLListener(object sender, EventArgs e)
+		{
+			result = latex2MathMLConverter.Output;
+
+		}
 
 
 
