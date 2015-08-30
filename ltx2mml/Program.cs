@@ -35,7 +35,7 @@ namespace ltx2mml
 		LatexMathToMathMLConverter lmm;
 
 		public void Convert() {
-			String latexExpression = @"\begin{document} $\frac{x}{y}$ \end{document}";
+			String latexExpression = @"\begin{document} $\forall x \in X, \quad \exists y \leq \epsilon \le \geq \ge$ \end{document}";
 			lmm = new LatexMathToMathMLConverter();
 			lmm.ValidateResult = true;
 			lmm.BeforeXmlFormat += MyEventListener;

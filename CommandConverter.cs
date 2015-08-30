@@ -173,6 +173,10 @@ namespace LatexMath2MathML
                       
             {"neq", "<mi>&#x2260;<!-- &ne; --></mi>\n"},
             {"equiv", "<mi>&#x2261;<!-- equiv --></mi>\n"},
+			{"leq", "<mi>&#8804; <!-- leq --> </mi> \n"},
+			{"le", "<mi>&#8804; <!-- le --> </mi> \n"},
+			{"geq", "<mi>&#8805; <!-- geq --> </mi> \n"},
+			{"ge", "<mi>&#8805; <!-- ge --> </mi> \n"},
             {"pm", "<mi>&#xB1;<!-- pm --></mi>\n"},
             {"mp", "<mi>&#x2213;<!-- mp --></mi>\n"},
             {"sim", "<mi>&#x223C;<!-- &sim; --></mi>\n"},
