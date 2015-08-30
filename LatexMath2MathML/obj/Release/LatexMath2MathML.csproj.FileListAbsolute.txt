@@ -1,8 +1,0 @@
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\bin\Release\log4net.config
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\bin\Release\favicon.png
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\bin\Release\styles.css
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\bin\Release\LatexMath2MathML.dll
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\bin\Release\LatexMath2MathML.pdb
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\bin\Release\log4net.dll
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\obj\Release\LatexMath2MathML.dll
-C:\Users\FNOFGS\Documents\Visual Studio\LatexMath2MathML\obj\Release\LatexMath2MathML.pdb
