@@ -37,3 +37,4 @@
 /Users/Frans/Documents/c-sharp/scania/LatexMath2MathML/ltx2mml/bin/Debug/ltx2mml.exe
 /Users/Frans/Documents/c-sharp/LatexMath2MathML/ltx2mml/bin/Debug/LatexMath2MathML.dll
 /Users/Frans/Documents/c-sharp/LatexMath2MathML/ltx2mml/bin/Debug/LatexMath2MathML.dll.mdb
+/Users/Frans/Documents/c-sharp/LatexMath2MathML/ltx2mml/bin/Debug/nunit.framework.dll
