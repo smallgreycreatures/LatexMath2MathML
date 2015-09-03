@@ -310,26 +310,54 @@ namespace LatexMath2MathML
 		[Test]
 		public void ConvertOperatorsRelationShipOperatorsReturnsCorrectMML() 
 		{
-			String latexExpression = @"$\subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq$";
+			String latexExpression = @"$< <= \leq \ll \subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq > >=\geq \gg \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq = \doteq \equiv \approx \cong \simeq \sim \propto \neq \parallel \asymp \vdash \in \smile \models \perp \prec \sphericalangle$";
 			String latexToConvert = begin + latexExpression + end;
 			latex2MathMLConverter = new LatexMathToMathMLConverter();
 			latex2MathMLConverter.BeforeXmlFormat += ConvertOperatorsRelationShipOperatorsReturnsCorrectMMLListener;
 			latex2MathMLConverter.Convert(latexToConvert);
 
-			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""\subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq"" display=""inline"" class=""normalsize"">
+			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""&amp;lt; &amp;lt;= \leq \ll \subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq &amp;gt; &amp;gt;=\geq \gg \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq = \doteq \equiv \approx \cong \simeq \sim \propto \neq \parallel \asymp \vdash \in \smile \models \perp \prec \sphericalangle"" display=""inline"" class=""normalsize"">
 <mstyle displaystyle=""true"" /><mrow>
+<mo>&lt;</mo>
+<mo>&le;</mo>
+<mo>=</mo>
+<mi>&#8804; <!-- leq --> </mi> 
+<mo>&#x226A;<!-- &Lt; --></mo>
 <mo>&#x2282;<!-- &sub; --></mo>
 <mo>&#x2286;<!-- &sube; --></mo>
 <mo>&#x2288;<!-- &nsube; --></mo>
 <mo>&#x228F;<!-- &sqsub; --></mo>
 <mo>&#x2291;<!-- &sqsube; --></mo>
 <mo>&#x227C;<!-- &cupre; --></mo>
+<mo>&gt;</mo>
+<mo>&ge;</mo>
+<mo>=</mo>
+<mi>&#8805; <!-- geq --> </mi> 
+<mo>&#x226B;<!-- &Gt; --></mo>
 <mo>&#x2283;<!-- &sup; --></mo>
 <mo>&#x2287;<!-- &supe; --></mo>
 <mo>&#x2289;<!-- &nsupe; --></mo>
 <mo>&#x2290;<!-- &sqsup; --></mo>
 <mo>&#x2292;<!-- &sqsupe; --></mo>
 <mo>&#x227D;<!-- &sccue; --></mo>
+<mo>=</mo>
+<mo>&#x2250;<!-- &esdot; --></mo>
+<mi>&#x2261;<!-- equiv --></mi>
+<mi>&#x2248;<!-- &asymp; --></mi>
+<mo>&#x2245;<!-- &cong; --></mo>
+<mo>&#x2243;<!-- &sime; --></mo>
+<mi>&#x223C;<!-- &sim; --></mi>
+<mo>&#x221D;<!-- &vprop; --></mo>
+<mi>&#x2260;<!-- &ne; --></mi>
+<mo>&#x20E6;</mo>
+<mo>&#x224d;<!-- &asymp; --></mo>
+<mo>&#x22A2;<!-- &vdash; --></mo>
+<mi>&#x2208;<!-- &isin; --></mi>
+<mo>&#x23DD;</mo>
+<mo>&#x22A7;<!-- &models; --></mo>
+<mo>&#x22A5;<!-- &bottom; --></mo>
+<mo>&#x227A;<!-- &pr; --></mo>
+<mo>&#x2222;<!-- &angsph; --></mo>
 </mrow>
 </math>";
 			Thread.Sleep(400);
@@ -344,6 +372,36 @@ namespace LatexMath2MathML
 			result = latex2MathMLConverter.Output;
 
 		}
+		[Test]
+		public void ConvertOperatorsDotsReturnsCorrectMML() 
+		{
+			String latexExpression = @"$\dots \dotsm \vdots \ddots$";
+			String latexToConvert = begin + latexExpression + end;
+			latex2MathMLConverter = new LatexMathToMathMLConverter();
+			latex2MathMLConverter.BeforeXmlFormat += ConvertOperatorsDotsReturnsCorrectMMLListener;
+			latex2MathMLConverter.Convert(latexToConvert);
+
+			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""\dots \dotsm \vdots \ddots"" display=""inline"" class=""normalsize"">
+<mstyle displaystyle=""true"" /><mrow>
+<mo>&hellip;</mo>
+<mo>&ctdot;</mo>
+<mo>&dtdot;</mo>
+<mo>&vellip;</mo>
+</mrow>
+</math>";
+			Thread.Sleep(400);
+
+
+			NUnit.Framework.Assert.That(result, Is.EqualTo(expected));
+
+		}
+
+		void ConvertOperatorsDotsReturnsCorrectMMLListener(object sender, EventArgs e)
+		{
+			result = latex2MathMLConverter.Output;
+
+		}
+	
 	}
 
 }

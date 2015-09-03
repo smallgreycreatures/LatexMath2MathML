@@ -70,12 +70,12 @@ namespace LatexMath2MathML
 			#endregion
         };
 
-		//TODO add Big letters
+
         public static readonly Dictionary<string, string> CommandConstants = new Dictionary<string, string>
         {
             #region Initialization
-            {"\\", "<br />"},
-            {"footnoterule", "<br />"},
+			{"\\", "\n</mrow>\n<mrow>\n"},
+			{"footnoterule", "\n</mrow>\n<mrow>\n"},
 			{"Alpha", "&#x391;<!-- &Alpha; -->"},
             {"alpha", "&#x3B1;<!-- &alpha; -->"},
 			{"Beta", "&#x392;<!-- &Beta; -->"},
@@ -214,7 +214,7 @@ namespace LatexMath2MathML
             {"forall", "<mi>&#x2200;<!-- &forall; --></mi>\n"},
             {"infty", "<mi>&#x221E;<!-- &infty; --></mi>\n"},
             {"exists", "<mi>&#x2203;<!-- &exist; --></mi>\n"},
-            {"nexists", "<mi>&#x2204;<!-- \nexists --></mi>\n"},
+            {"nexists", "<mi>&#x2204;<!-- &nexists --></mi>\n"},
             {"to", "<mo>&#x2192;<!-- &rarr; --></mo>\n"},
 			{"ll", "<mo>&#x226A;<!-- &Lt; --></mo>\n"},
 			{"gg", "<mo>&#x226B;<!-- &Gt; --></mo>\n"},
@@ -230,6 +230,18 @@ namespace LatexMath2MathML
 			{"sqsupseteq", "<mo>&#x2292;<!-- &sqsupe; --></mo>\n"},
 			{"preceq", "<mo>&#x227C;<!-- &cupre; --></mo>\n"},
 			{"succeq", "<mo>&#x227D;<!-- &sccue; --></mo>\n"},
+			{"doteq", "<mo>&#x2250;<!-- &esdot; --></mo>\n"},
+			{"cong", "<mo>&#x2245;<!-- &cong; --></mo>\n"},
+			{"simeq", "<mo>&#x2243;<!-- &sime; --></mo>\n"},
+			{"propto", "<mo>&#x221D;<!-- &vprop; --></mo>\n"},
+			{"parallel", "<mo>&#x20E6;</mo>\n"},
+			{"asymp", "<mo>&#x224d;<!-- &asymp; --></mo>\n"},
+			{"vdash", "<mo>&#x22A2;<!-- &vdash; --></mo>\n"},
+			{"smile", "<mo>&#x23DD;</mo>\n"},
+			{"models", "<mo>&#x22A7;<!-- &models; --></mo>\n"},
+			{"perp", "<mo>&#x22A5;<!-- &bottom; --></mo>\n"},
+			{"prec", "<mo>&#x227A;<!-- &pr; --></mo>\n"},
+			{"sphericalangle", "<mo>&#x2222;<!-- &angsph; --></mo>\n"},
             {"quad", "<mspace width=\"2em\"/>"},
             {"qquad", "<mspace width=\"4em\"/>"},
             {";", "<mspace width=\"1.1em\"/>"},
@@ -302,7 +314,14 @@ namespace LatexMath2MathML
             {"]", "<mo>]</mo>\n"},
             {"{", "<mo>{</mo>\n"},
             {"}", "<mo>}</mo>\n"},
-            {"|", "<mo>|</mo>\n"}
+            {"|", "<mo>|</mo>\n"},
+
+			//{"dots", "<mi>&#x2026;<!-- &hellip; --></mi>\n"},
+			{"dots", "<mo>&hellip;</mo>\n"},
+			{"dotsm", "<mo>&ctdot;</mo>\n"},
+			{"vdots", "<mo>&dtdot;</mo>\n"},
+			{"ddots", "<mo>&vellip;</mo>\n"},
+
             #endregion
         };
 

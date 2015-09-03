@@ -29,10 +29,10 @@ namespace LatexMath2MathML
         /// </summary>
         private static readonly Dictionary<string, string> MathConstants = new Dictionary<string, string>
         {
-            {">=", "<mo>&le;</mo>\n"},
-            {"<=", "<mo>&ge;</mo>\n"},
-            {">", "<mo>&lt;</mo>\n"},
-            {"<", "<mo>&gt;</mo>\n"},
+            {"<=", "<mo>&le;</mo>\n"},
+            {">=", "<mo>&ge;</mo>\n"},
+            {">", "<mo>&gt;</mo>\n"},
+            {"<", "<mo>&lt;</mo>\n"},
             {"(", "<mfenced>\n<mrow>\n"},
             {")", "</mrow>\n</mfenced>\n"}
         };
