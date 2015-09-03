@@ -35,7 +35,7 @@ namespace ltx2mml
 		LatexMathToMathMLConverter lmm;
 
 		public void Convert() {
-			String latexExpression = @"\begin{document} $A, \alpha, B, \beta, \Gamma, \gamma, \Delta, \delta, E, \epsilon, \varepsilon, Z, \zeta, H, \eta, \Theta, \theta, \vartheta, I, \iota, K, \kappa, \varkappa, \Lambda, \lambda, M, \mu, N, \nu, \Xi, \xi, O, o, \Pi, \pi, \varpi, P, \rho, \varrho, \Sigma, \sigma, \varsigma, T, \tau, \Upsilon, \upsilon, \Phi, \phi, \varphi, X, \chi, \Psi, \psi, \Omega, \omega $ \end{document}";
+			String latexExpression = @"\begin{document} $\subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq $ \end{document}";
 			lmm = new LatexMathToMathMLConverter();
 			lmm.ValidateResult = true;
 			lmm.BeforeXmlFormat += MyEventListener;

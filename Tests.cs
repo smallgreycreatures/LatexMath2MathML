@@ -268,7 +268,82 @@ namespace LatexMath2MathML
 		}
 
 
+		[Test]
+		public void ConvertOperatorsWhitespacesReturnsMMLWithCorrectSpacing() 
+		{
+			String latexExpression = @"$A,\qquad B, \quad C, \; D, \: E, \, F, \! G $";
+			String latexToConvert = begin + latexExpression + end;
+			latex2MathMLConverter = new LatexMathToMathMLConverter();
+			latex2MathMLConverter.BeforeXmlFormat += ConvertOperatorsWhitespacesReturnsMMLWithCorrectSpacingListener;
+			latex2MathMLConverter.Convert(latexToConvert);
 
+			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""A,\qquad B, \quad C, \; D, \: E, \, F, \! G "" display=""inline"" class=""normalsize"">
+<mstyle displaystyle=""true"" /><mrow>
+<mi>A</mi>
+<mo>,</mo>
+<mspace width=""4em""/><mi>B</mi>
+<mo>,</mo>
+<mspace width=""2em""/><mi>C</mi>
+<mo>,</mo>
+<mspace width=""1.1em""/><mi>D</mi>
+<mo>,</mo>
+<mspace width=""0.9em""/><mi>E</mi>
+<mo>,</mo>
+<mspace width=""0.7em""/><mi>F</mi>
+<mo>,</mo>
+<mspace width=""0.3em""/><mi>G</mi>
+</mrow>
+</math>";
+			Thread.Sleep(400);
+
+
+			NUnit.Framework.Assert.That(result, Is.EqualTo(expected));
+
+		}
+
+		void ConvertOperatorsWhitespacesReturnsMMLWithCorrectSpacingListener(object sender, EventArgs e)
+		{
+			result = latex2MathMLConverter.Output;
+
+		}
+
+		[Test]
+		public void ConvertOperatorsRelationShipOperatorsReturnsCorrectMML() 
+		{
+			String latexExpression = @"$\subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq$";
+			String latexToConvert = begin + latexExpression + end;
+			latex2MathMLConverter = new LatexMathToMathMLConverter();
+			latex2MathMLConverter.BeforeXmlFormat += ConvertOperatorsRelationShipOperatorsReturnsCorrectMMLListener;
+			latex2MathMLConverter.Convert(latexToConvert);
+
+			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""\subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq"" display=""inline"" class=""normalsize"">
+<mstyle displaystyle=""true"" /><mrow>
+<mo>&#x2282;<!-- &sub; --></mo>
+<mo>&#x2286;<!-- &sube; --></mo>
+<mo>&#x2288;<!-- &nsube; --></mo>
+<mo>&#x228F;<!-- &sqsub; --></mo>
+<mo>&#x2291;<!-- &sqsube; --></mo>
+<mo>&#x227C;<!-- &cupre; --></mo>
+<mo>&#x2283;<!-- &sup; --></mo>
+<mo>&#x2287;<!-- &supe; --></mo>
+<mo>&#x2289;<!-- &nsupe; --></mo>
+<mo>&#x2290;<!-- &sqsup; --></mo>
+<mo>&#x2292;<!-- &sqsupe; --></mo>
+<mo>&#x227D;<!-- &sccue; --></mo>
+</mrow>
+</math>";
+			Thread.Sleep(400);
+
+
+			NUnit.Framework.Assert.That(result, Is.EqualTo(expected));
+
+		}
+
+		void ConvertOperatorsRelationShipOperatorsReturnsCorrectMMLListener(object sender, EventArgs e)
+		{
+			result = latex2MathMLConverter.Output;
+
+		}
 	}
 
 }
