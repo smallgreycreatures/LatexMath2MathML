@@ -307,6 +307,9 @@ namespace LatexMath2MathML
 
 		}
 
+		/**
+		 * Tests all relationships symbols mentioned on https://en.wikibooks.org/wiki/LaTeX/Mathematics
+		 * **/
 		[Test]
 		public void ConvertOperatorsRelationShipOperatorsReturnsCorrectMML() 
 		{
@@ -372,6 +375,7 @@ namespace LatexMath2MathML
 			result = latex2MathMLConverter.Output;
 
 		}
+
 		[Test]
 		public void ConvertOperatorsDotsReturnsCorrectMML() 
 		{
@@ -397,6 +401,40 @@ namespace LatexMath2MathML
 		}
 
 		void ConvertOperatorsDotsReturnsCorrectMMLListener(object sender, EventArgs e)
+		{
+			result = latex2MathMLConverter.Output;
+
+		}
+
+		/**
+		 * Tests all the binary operators mentioned on https://en.wikibooks.org/wiki/LaTeX/Mathematics
+		 * 
+		 * **/
+		[Test]
+		public void ConvertOperatorsBinaryOperators() 
+		{
+			String latexExpression = @"$\pm \mp \times \div \ast \star \dagger \ddagger \cap \cup \uplus \sqcap \sqcup \vee \wedge \cdot \diamond \bigtriangleup \bigtriangledown \triangleleft \triangledown \bigcirc \bullet \wr \oplus \ominus \otimes \oslash \odot \circ \setminus \amalg$";
+			String latexToConvert = begin + latexExpression + end;
+			latex2MathMLConverter = new LatexMathToMathMLConverter();
+			latex2MathMLConverter.BeforeXmlFormat += ConvertOperatorsBinaryOperatorsListener;
+			latex2MathMLConverter.Convert(latexToConvert);
+
+			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""\dots \dotsm \vdots \ddots"" display=""inline"" class=""normalsize"">
+<mstyle displaystyle=""true"" /><mrow>
+<mo>&hellip;</mo>
+<mo>&ctdot;</mo>
+<mo>&dtdot;</mo>
+<mo>&vellip;</mo>
+</mrow>
+</math>";
+			Thread.Sleep(400);
+
+
+			NUnit.Framework.Assert.That(result, Is.EqualTo(expected));
+
+		}
+
+		void ConvertOperatorsBinaryOperatorsListener(object sender, EventArgs e)
 		{
 			result = latex2MathMLConverter.Output;
 

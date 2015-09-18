@@ -35,7 +35,8 @@ namespace ltx2mml
 		LatexMathToMathMLConverter lmm;
 
 		public void Convert() {
-			String latexExpression = @"\begin{document} $< <= \leq \ll \subset \subseteq \nsubseteq \sqsubset \sqsubseteq \preceq > >=\geq \gg \supset \supseteq \nsupseteq \sqsupset \sqsupseteq \succeq = \doteq \equiv \approx \cong \simeq \sim \propto \neq \parallel \asymp \vdash \in \smile \models \perp \prec \sphericalangle$ \end{document}";
+			
+			String latexExpression = @"\begin{document} $x+y=2$ \end{document}";
 			lmm = new LatexMathToMathMLConverter();
 			lmm.ValidateResult = true;
 			lmm.BeforeXmlFormat += MyEventListener;

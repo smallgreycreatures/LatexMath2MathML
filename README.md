@@ -4,7 +4,8 @@ This is a version of Latex2MathML(https://latex2mathml.codeplex.com) with subtra
 * Added functionality
 Support for small, big and var greek letters (the code for \phi and \varphi might be wrong)
 
-Support for \geq, \ge, \leq, \le, \forall and \exists commands
+Support for all relationship operators mentioned on https://en.wikibooks.org/wiki/LaTeX/Mathematics
+
 
 * Test cases
 Test cases are added to prove the functionality and can be found in Tests.cs.
