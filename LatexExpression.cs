@@ -845,7 +845,13 @@ namespace LatexMath2MathML
                 if (pos == -1)
                 {
                     value += str + " ";
-                    str = rdr.ReadLine();
+					try {
+					str = rdr.ReadLine();
+					} catch(NullReferenceException e) {
+						throw new FormatException ("Unmatching braces in expression: " + value);	
+					}
+
+
                 }
             }
             value += str.Substring(0, pos);

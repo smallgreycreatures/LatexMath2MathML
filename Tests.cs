@@ -145,17 +145,17 @@ namespace LatexMath2MathML
 
 			String expected = @"<math xmlns=""http://www.w3.org/1998/Math/MathML"" alttext=""\forall x \in X, \quad \exists y \leq \epsilon \le \geq \ge"" display=""inline"" class=""normalsize"">
 <mstyle displaystyle=""true"" /><mrow>
-<mi>&#x2200;<!-- &forall; --></mi>
+<mo>&#x2200;<!-- &forall; --></mo>
 <mi>x</mi>
-<mi>&#x2208;<!-- &isin; --></mi>
+<mo>&#x2208;<!-- &isin; --></mo>
 <mi>X</mi>
 <mo>,</mo>
-<mspace width=""2em""/><mi>&#x2203;<!-- &exist; --></mi>
+<mspace width=""2em""/><mo>&#x2203;<!-- &exist; --></mo>
 <mi>y</mi>
-<mi>&#8804; <!-- leq --> </mi> 
-<mi>&#x3B5;<!-- &epsilon; --></mi><mi>&#8804; <!-- le --> </mi> 
-<mi>&#8805; <!-- geq --> </mi> 
-<mi>&#8805; <!-- ge --> </mi> 
+<mo>&#8804; <!-- leq --> </mo> 
+<mi>&#x3B5;<!-- &epsilon; --></mi><mo>&#8804; <!-- le --> </mo> 
+<mo>&#8805; <!-- geq --> </mo> 
+<mo>&#8805; <!-- ge --> </mo> 
 </mrow>
 </math>";
 			Thread.Sleep(400);
@@ -324,7 +324,7 @@ namespace LatexMath2MathML
 <mo>&lt;</mo>
 <mo>&le;</mo>
 <mo>=</mo>
-<mi>&#8804; <!-- leq --> </mi> 
+<mo>&#8804; <!-- leq --> </mo> 
 <mo>&#x226A;<!-- &Lt; --></mo>
 <mo>&#x2282;<!-- &sub; --></mo>
 <mo>&#x2286;<!-- &sube; --></mo>
@@ -335,7 +335,7 @@ namespace LatexMath2MathML
 <mo>&gt;</mo>
 <mo>&ge;</mo>
 <mo>=</mo>
-<mi>&#8805; <!-- geq --> </mi> 
+<mo>&#8805; <!-- geq --> </mo> 
 <mo>&#x226B;<!-- &Gt; --></mo>
 <mo>&#x2283;<!-- &sup; --></mo>
 <mo>&#x2287;<!-- &supe; --></mo>
@@ -345,17 +345,17 @@ namespace LatexMath2MathML
 <mo>&#x227D;<!-- &sccue; --></mo>
 <mo>=</mo>
 <mo>&#x2250;<!-- &esdot; --></mo>
-<mi>&#x2261;<!-- equiv --></mi>
-<mi>&#x2248;<!-- &asymp; --></mi>
+<mo>&#x2261;<!-- equiv --></mo>
+<mo>&#x2248;<!-- &asymp; --></mo>
 <mo>&#x2245;<!-- &cong; --></mo>
 <mo>&#x2243;<!-- &sime; --></mo>
-<mi>&#x223C;<!-- &sim; --></mi>
+<mo>&#x223C;<!-- &sim; --></mo>
 <mo>&#x221D;<!-- &vprop; --></mo>
-<mi>&#x2260;<!-- &ne; --></mi>
+<mo>&#x2260;<!-- &ne; --></mo>
 <mo>&#x20E6;</mo>
 <mo>&#x224d;<!-- &asymp; --></mo>
 <mo>&#x22A2;<!-- &vdash; --></mo>
-<mi>&#x2208;<!-- &isin; --></mi>
+<mo>&#x2208;<!-- &isin; --></mo>
 <mo>&#x23DD;</mo>
 <mo>&#x22A7;<!-- &models; --></mo>
 <mo>&#x22A5;<!-- &bottom; --></mo>

@@ -185,7 +185,8 @@ namespace LatexMath2MathML
         {
             var parser = new LatexParser(_sourceText, this);
             LatexExpression root;
-            //try
+			try {
+			//try
             //{
                 root = parser.Root;
             /*}
@@ -202,14 +203,15 @@ namespace LatexMath2MathML
 #endif
             }*/
 // ReSharper restore RedundantCatchClause
-            CallEventHandler(AfterDocumentWasParsed);
 
+			
+			CallEventHandler(AfterDocumentWasParsed);
+			
             String linkToMMLDDT = "<!DOCTYPE math SYSTEM 'http://www.w3.org/Math/DTD/mathml1/mathml.dtd'>";
             StringBuilder sb = new StringBuilder(linkToMMLDDT);
-            try
-            {
+            
                 Output = root.Convert();
-				Console.WriteLine(Output);
+				//Console.WriteLine(Output);
                 CallEventHandler(BeforeXmlFormat);
                 XDocument xml;
                 sb.Append(Output);
@@ -250,7 +252,6 @@ namespace LatexMath2MathML
                 }
              }
             catch (Exception e){
-
                 
                 if(ExceptionEvent!=null)
                     ExceptionEvent(this, new ExceptionEventArgs(e.Message));

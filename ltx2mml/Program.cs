@@ -35,19 +35,27 @@ namespace ltx2mml
 		LatexMathToMathMLConverter lmm;
 
 		public void Convert() {
-			
-			String latexExpression = @"\begin{document} $x+y=2$ \end{document}";
+			String latexExpression = @"\begin{document} $\frac{\mathrm d}{\mathrm d x} \big( k g(x \big)$ \end{document}";
 			lmm = new LatexMathToMathMLConverter();
 			lmm.ValidateResult = true;
 			lmm.BeforeXmlFormat += MyEventListener;
+			lmm.ExceptionEvent += ExceptionListener;
 			lmm.Convert(latexExpression); 
 
 		}
+
+		private void ExceptionListener(object sender, ExceptionEventArgs e) {
+			Console.WriteLine ("Exception handler called");
+
+			String message = e.Message;
+			Console.WriteLine (message);
+		}
+
 		private void MyEventListener(object sender, EventArgs e) 
 		{
 			//Console.WriteLine("called .");
 			String output = lmm.Output;
-			//Console.WriteLine (output);
+			Console.WriteLine (output);
 		}
 
     }

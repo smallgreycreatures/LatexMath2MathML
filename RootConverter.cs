@@ -1,4 +1,4 @@
-﻿/*  
+﻿/*
     This file is part of LatexMath2MathML.
 
     LatexMath2MathML is free software: you can redistribute it and/or modify
